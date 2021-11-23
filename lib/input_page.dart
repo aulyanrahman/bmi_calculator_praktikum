@@ -22,9 +22,8 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour  = inactiveCardColour;
 
   // 1 = Male, 2 = Female
-  Gender selectedGender;
+  // Gender selectedGender;
   
-  /*
   void updateColour(Gender selectedGender){
     if(selectedGender == Gender.male){
       if(maleCardColour == inactiveCardColour){
@@ -43,7 +42,6 @@ class _InputPageState extends State<InputPage> {
       }
     }
   }
-  */
 
   @override
   Widget build(BuildContext context) {
@@ -62,12 +60,13 @@ class _InputPageState extends State<InputPage> {
                   onTap: () {
                     // print('Tombol Pilihan Laki-laki Ditekan!');
                     setState(() {
-                      // updateColour(Gender.male);
-                      selectedGender = Gender.male;
+                      updateColour(Gender.male);
+                      // selectedGender = Gender.male;
                     });
                   },
                   child: ReusableCard(
-                    colour: selectedGender == Gender.male ? maleCardColour : inactiveCardColour,
+                    // colour: selectedGender == Gender.male ? maleCardColour : inactiveCardColour,
+                    colour: maleCardColour,
                     height: 200.0,
                     width: 179.0,
                     cardChild: IconContent(
@@ -82,12 +81,13 @@ class _InputPageState extends State<InputPage> {
                   onTap: () {
                     // print('Tombol Pilihan Perempuan Ditekan!');
                     setState(() {
-                      // updateColour(Gender.female);
-                      selectedGender = Gender.female;
+                      updateColour(Gender.female);
+                      // selectedGender = Gender.female;
                     });
                   },
                   child: ReusableCard(
-                    colour: selectedGender == Gender.female ? femaleCardColour : inactiveCardColour,
+                    // colour: selectedGender == Gender.female ? femaleCardColour : inactiveCardColour,
+                    colour: femaleCardColour,
                     height: 200.0,
                     width: 179.0,
                     cardChild: IconContent(
