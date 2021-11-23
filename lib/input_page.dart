@@ -7,6 +7,7 @@ const bottomContainerHeight = 80.0;
 const activeCardColour      = Color(0xFF1D1E33);
 const inactiveCardColour    = Color(0xFF111328);
 const bottomContainerColour = Color(0xFFEB1555);
+enum Gender {male, female}
 
 class InputPage extends StatefulWidget {
   const InputPage({ Key? key }) : super(key: key);
@@ -21,16 +22,19 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour  = inactiveCardColour;
 
   // 1 = Male, 2 = Female
-  void updateColour(int gender)
-  {
-    if(gender == 1){
+  Gender selectedGender;
+  
+  /*
+  void updateColour(Gender selectedGender){
+    if(selectedGender == Gender.male){
       if(maleCardColour == inactiveCardColour){
         maleCardColour = activeCardColour;
         femaleCardColour = inactiveCardColour;
       } else {
         maleCardColour = inactiveCardColour;
       }
-    } else {
+    }
+    if(selectedGender == Gender.female){
       if(femaleCardColour == inactiveCardColour){
         femaleCardColour = activeCardColour;
         maleCardColour = inactiveCardColour;
@@ -39,6 +43,7 @@ class _InputPageState extends State<InputPage> {
       }
     }
   }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +62,12 @@ class _InputPageState extends State<InputPage> {
                   onTap: () {
                     // print('Tombol Pilihan Laki-laki Ditekan!');
                     setState(() {
-                      updateColour(1);
+                      // updateColour(Gender.male);
+                      selectedGender = Gender.male;
                     });
                   },
                   child: ReusableCard(
-                    colour: maleCardColour,
+                    colour: selectedGender == Gender.male ? maleCardColour : inactiveCardColour,
                     height: 200.0,
                     width: 179.0,
                     cardChild: IconContent(
@@ -76,11 +82,12 @@ class _InputPageState extends State<InputPage> {
                   onTap: () {
                     // print('Tombol Pilihan Perempuan Ditekan!');
                     setState(() {
-                      updateColour(2);
+                      // updateColour(Gender.female);
+                      selectedGender = Gender.female;
                     });
                   },
                   child: ReusableCard(
-                    colour: femaleCardColour,
+                    colour: selectedGender == Gender.female ? femaleCardColour : inactiveCardColour,
                     height: 200.0,
                     width: 179.0,
                     cardChild: IconContent(
