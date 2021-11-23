@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 class IconContent extends StatelessWidget {
   const IconContent({
-    Key? key,
-    required this.icon,
-    required this.label,
-  }) : super(key: key);
+    @required this.icon,
+    @required this.label,
+  });
 
   final IconData icon;
   final String label;

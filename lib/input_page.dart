@@ -10,7 +10,6 @@ const bottomContainerColour = Color(0xFFEB1555);
 enum Gender {male, female}
 
 class InputPage extends StatefulWidget {
-  const InputPage({ Key? key }) : super(key: key);
 
   @override
   _InputPageState createState() => _InputPageState();
