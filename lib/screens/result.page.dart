@@ -24,7 +24,7 @@ class ResultPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              alignment: Alignment.bottomLeft,
+              alignment: Alignment.bottomCenter,
               padding: EdgeInsets.all(15.0),
               child: Text(
                 'Calculate Result',
