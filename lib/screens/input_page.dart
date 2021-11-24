@@ -1,9 +1,12 @@
+import 'package:bmi_calculator_praktikum_k/components/bottom_button.dart';
 import 'package:bmi_calculator_praktikum_k/components/round_button_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/icon_content.dart';
 import '../components/reusable_card.dart';
 import 'package:bmi_calculator_praktikum_k/constant.dart';
+import 'package:bmi_calculator_praktikum_k/calculator_brain.dart';
+import 'result.page.dart';
 
 enum Gender {male, female}
 
@@ -203,11 +206,20 @@ class _InputPageState extends State<InputPage> {
           ],)),
 
           // Widget Tombol Hitung
-          Container(
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          BottomButton(
+            buttonText: 'CALCULATE', 
+            onTap: () {
+              CalculatorBrain calculate = CalculatorBrain(
+                height: height,
+                weight: weight
+              );
+              Navigator.pushNamed(context, ResultPage.routeName,
+              arguments: ResultPage(
+                bmiResult: calculate.calculateBMI(),
+                resultText: calculate.getResult(),
+                interpretation: calculate.getInterpretation(),
+              ));
+            }
           )
         ],
       )
